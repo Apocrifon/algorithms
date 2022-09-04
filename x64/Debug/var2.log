@@ -1,0 +1,19 @@
+﻿  Main.cpp
+C:\Users\Apocrifon\Desktop\var2\Funk.h(84,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(95,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(98,68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(111,12): warning C4244: 'return': conversion from '__int64' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(116,10): warning C4215: nonstandard extension used: long float
+C:\Users\Apocrifon\Desktop\var2\Funk.h(122,12): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(132,10): warning C4215: nonstandard extension used: long float
+C:\Users\Apocrifon\Desktop\var2\Funk.h(138,12): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(143,10): warning C4215: nonstandard extension used: long float
+C:\Users\Apocrifon\Desktop\var2\Funk.h(149,12): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(181,9): warning C4101: 'indexElem': unreferenced local variable
+C:\Users\Apocrifon\Desktop\var2\Funk.h(205,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(255,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(295,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(300,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Main.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Apocrifon\Desktop\var2\Funk.h(176): warning C4715: 'DeleteElem': not all control paths return a value
+  var2.vcxproj -> C:\Users\Apocrifon\Desktop\var2\x64\Debug\var2.exe
