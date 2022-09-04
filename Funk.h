@@ -9,82 +9,67 @@ enum conditions
     positive,
     negative,
     zero,
-    multiple
 };
 
 using namespace std;
 
-int* SetRandValueForInt(int size);
 
-float* SetRandValueForFloat(int size);
 
-float CalculateSumOfElem(int array[], int size, conditions condition);
+bool IsPositiveNumber(int a)
+{
+    return a > 0;
+}
 
-float CalculateSumOfElem(float array[], int size, conditions condition);
+bool IsPositiveNumber(float a)
+{
+    return a > 0;
+}
 
-bool PredInRange(int index, int firstIndex, int lastIndex);
+bool IsNegativeNumber(int a)
+{
+    return a < 0;
+}
 
-float CalculateMultiplicationOfElem(int array[], int size, conditions condition);
+bool IsNegativeNumber(float a)
+{
+    return a < 0;
+}
 
-float CalculateMultiplicationOfElem(float array[], int size, conditions condition);
+bool IsZeroNumber(int a)
+{
+    return a == 0;
+}
 
-int* DeleteElem(int* array, int size, int index);
+bool IsZeroNumber(float a)
+{
+    return a == 0;
+}
 
-float* DeleteElem(float* array, int size, int index);
+bool IsMultipleOfNumber(int number, int divider)
+{
+    if (divider == 0)
+    {
+        return false;
+        //throw "Division by zero condition!";
+    }
+    return number / divider * divider == number;
+}
 
-int* AddNewElem(int* array, int size, int index, int newElem);
+bool IsMultipleOfNumber(float number, int divider)
+{
+    if (divider == 0)
+    {
+        return false;
+        //throw "Division by zero condition!";
+    }
+    return number / divider == (int)number / divider;
+}
 
-float* AddNewElem(float* array, int size, int index, int newElem);
+bool SearchBoundaries(int index, int firstIndex, int lastIndex)
+{
+    return index >= firstIndex - 1 && index <= lastIndex - 1;
+}
 
-void BubbleSort(int* array, int size);
-
-void BubbleSort(float* array, int size);
-
-void SelectSort(int* array, int size);
-
-void SelectSort(float* array, int size);
-
-void InsertSort(int* array, int size);
-
-void InsertSort(float* array, int size);
-
-int LinearSearch(int* array, int size, int key);
-
-int LinearSearch(float* array, int size, int key);
-
-int BinarySearch(int* array, int size, int key);
-
-int BinarySearch(float* array, int size, int key);
-
-bool IsPositiveNumber(int a);
-
-bool IsPositiveNumber(float a);
-
-bool IsNegativenumber(int a);
-
-bool IsNegativenumber(float a);
-
-bool IsZeroNumber(int a);
-
-bool IsZeroNumber(float a);
-
-bool IsMultipleOfNumber(int number, int divider);
-
-bool IsMultipleOfNumber(float number, int divider);
-
-int CounterOfNumberOfElem(int* array, int size, conditions condition);
-
-int CounterOfNumberOfElem(float* array, int size, conditions condition);
-
-void ReadElementsOfArray(int* array, int size);
-
-void ReadElementsOfArray(float* array, int size);  /*REWRITE*/
-
-void WriteElementsOfArray(int* array, int size);
-
-void WriteElementsOfArray(float* array, int size);
-
-void WriteInfoInFile(string path);
 
 int* SetRandValueForInt(int size)
 {
@@ -108,51 +93,120 @@ float* SetRandValueForFloat(int size)
     return array;
 }
 
-float CalculateSumOfElem(int array[], int size, conditions condition)
+float SumOfElements(int array[], int size, conditions condition)
 {
-    long long result = 0;
+    float result = 0;
+    int leftBoard = 0;
+    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            result += array[i];
+        if (SearchBoundaries(i,leftBoard, rightBoard))
+        switch (condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                result += array[i];
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                result += array[i];
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                result += array[i];
+            break;
+        default:
+            break;
+        }
     }
     return result;
 }
 
-float CalculateSumOfElem(float array[], int size, conditions condition)
+float SumOfElements(float array[], int size, conditions condition)
 {
-    long float result = 0;
+    float result = 0;
+    int leftBoard = 0;
+    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            result += array[i];
+        if (SearchBoundaries(i, leftBoard, rightBoard))
+        switch (condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                result += array[i];
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                result += array[i];
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                result += array[i];
+            break;
+        default:
+            break;
+        }
     }
     return result;
 }
 
-bool PredInRange(int index, int firstIndex, int lastIndex)
-{
-    return index >= firstIndex - 1 && index <= lastIndex - 1;
-}
 
-float CalculateMultiplicationOfElem(float array[], int size, conditions condition)
+
+float MultiplicationOfElements(float array[], int size, conditions condition)
 {
-    long float result = 1;
+    float result = 1;
+    int leftBoard = 0;
+    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            result *= array[i];
+        if (SearchBoundaries(i, leftBoard, rightBoard))
+        switch (condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                result *= array[i];
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                result *= array[i];
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                result *= array[i];
+            break;
+        default:
+            break;
+        }
     }
     return result;
 }
 
-float CalculateMultiplicationOfElem(int array[], int size, conditions condition)
+float MultiplicationOfElements(int array[], int size, conditions condition)
 {
-    long float result = 1;
+    float result = 1;
+    int leftBoard = 0;
+    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            result *= array[i];
+        if (SearchBoundaries(i, leftBoard, rightBoard))
+        switch(condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                result *= array[i];
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                result *= array[i];
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                result *= array[i];
+            break;
+        default:
+            break;
+        }
     }
     return result;
 }
@@ -363,63 +417,30 @@ int BinarySearch(float* array, int size, int key)
     return -1;
 }
 
-bool IsPositiveNumber(int a)
-{
-    return a > 0;
-}
 
-bool IsPositiveNumber(float a)
-{
-    return a > 0;
-}
-
-bool IsNegativenumber(int a)
-{
-    return a < 0;
-}
-
-bool IsNegativenumber(float a)
-{
-    return a < 0;
-}
-
-bool IsZeroNumber(int a)
-{
-    return a == 0;
-}
-
-bool IsZeroNumber(float a)
-{
-    return a == 0;
-}
-
-bool IsMultipleOfNumber(int number, int divider)
-{
-    if (divider == 0)
-    {
-        return false;
-        //throw "Division by zero condition!";
-    }
-    return number / divider * divider == number;
-}
-
-bool IsMultipleOfNumber(float number, int divider)
-{
-    if (divider == 0)
-    {
-        return false;
-        //throw "Division by zero condition!";
-    }
-    return number / divider == (int)number / divider;
-}
 
 int CounterOfNumberOfElem(int* array, int size, conditions condition)
 {
     int counter = 0;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            counter++;
+        switch (condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                counter++;
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                counter++;
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                counter++;
+            break;
+        default:
+            break;
+        }
     }
     return counter;
 }
@@ -429,8 +450,23 @@ int CounterOfNumberOfElem(float* array, int size, conditions condition)
     int counter = 0;
     for (int i = 0; i < size; i++)
     {
-        if ()
-            counter++;
+        switch (condition)
+        {
+        case positive:
+            if (IsPositiveNumber(array[i]))
+                counter++;
+            break;
+        case negative:
+            if (IsNegativeNumber(array[i]))
+                counter++;
+            break;
+        case zero:
+            if (IsZeroNumber(array[i]))
+                counter++;
+            break;
+        default:
+            break;
+        }
     }
     return counter;
 }
