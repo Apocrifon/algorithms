@@ -3,12 +3,15 @@
 #include <ctime>
 #include <stdio.h>
 #include <fstream>
+#include <math.h>
+#include <string>
 
 enum conditions
 {
     positive,
     negative,
     zero,
+    null
 };
 
 using namespace std;
@@ -67,37 +70,31 @@ bool IsMultipleOfNumber(float number, int divider)
 
 bool SearchBoundaries(int index, int firstIndex, int lastIndex)
 {
-    return index >= firstIndex - 1 && index <= lastIndex - 1;
+    return index >= firstIndex && index <= lastIndex;
 }
 
 
-int* SetRandValueForInt(int size)
+void SetRandValueForInt(int* array, int size)
 {
-    int* array = new int[size];
     srand(time(NULL));
     for (int i = 0; i < size; i++)
     {
         array[i] = -10000 + rand() % (20001);
     }
-    return array;
 }
 
-float* SetRandValueForFloat(int size)
+void SetRandValueForFloat(float* array, int size)
 {
-    float* array = new float[size];
     srand(time(NULL));
     for (int i = 0; i < size; i++)
-    {
-        array[i] = (double)(rand()) / RAND_MAX * (10000 - (-9999)) + (-9999);
+    {          
+        array[i] = (double)(rand()) / RAND_MAX * (2000) - 1000;
     }
-    return array;
 }
 
-float SumOfElements(int array[], int size, conditions condition)
+float SumOfElements(int array[], int size, conditions condition, int leftBoard , int rightBoard)
 {
     float result = 0;
-    int leftBoard = 0;
-    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
         if (SearchBoundaries(i,leftBoard, rightBoard))
@@ -122,11 +119,9 @@ float SumOfElements(int array[], int size, conditions condition)
     return result;
 }
 
-float SumOfElements(float array[], int size, conditions condition)
+float SumOfElements(float array[], int size, conditions condition, int leftBoard, int rightBoard)
 {
     float result = 0;
-    int leftBoard = 0;
-    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
         if (SearchBoundaries(i, leftBoard, rightBoard))
@@ -145,19 +140,18 @@ float SumOfElements(float array[], int size, conditions condition)
                 result += array[i];
             break;
         default:
+            result += array[i];
             break;
         }
     }
     return result;
 }
 
-
-
-float MultiplicationOfElements(float array[], int size, conditions condition)
+float MultiplicationOfElements(float array[], int size, conditions condition, int leftBoard, int rightBoard)
 {
     float result = 1;
-    int leftBoard = 0;
-    int rightBoard = size;
+    if (size == 0)
+        return 0;
     for (int i = 0; i < size; i++)
     {
         if (SearchBoundaries(i, leftBoard, rightBoard))
@@ -176,17 +170,16 @@ float MultiplicationOfElements(float array[], int size, conditions condition)
                 result *= array[i];
             break;
         default:
+            result *= array[i];
             break;
         }
     }
     return result;
 }
 
-float MultiplicationOfElements(int array[], int size, conditions condition)
+float MultiplicationOfElements(int array[], int size, conditions condition, int leftBoard, int rightBoard)
 {
     float result = 1;
-    int leftBoard = 0;
-    int rightBoard = size;
     for (int i = 0; i < size; i++)
     {
         if (SearchBoundaries(i, leftBoard, rightBoard))
@@ -205,6 +198,7 @@ float MultiplicationOfElements(int array[], int size, conditions condition)
                 result *= array[i];
             break;
         default:
+            result *= array[i];
             break;
         }
     }
@@ -288,7 +282,7 @@ void BubbleSort(float* array, int size)
     for (int i = 0; i < size - 1; i++)
     {
         for (int j = 0; j < size - 1; j++)
-        {
+        { 
             if (array[j + 1] < array[j])
                 swap(array[j], array[j + 1]);
         }
@@ -417,6 +411,22 @@ int BinarySearch(float* array, int size, int key)
     return -1;
 }
 
+void Reverse(int* array, int size)
+{
+    for (int i = 0, j= size-1; i<j ; i++,j--)
+    {
+        swap(array[i], array[j]);
+    }
+}
+
+void Reverse(float* array, int size)
+{
+    for (int i = 0, j = size - 1; i < j; i++, j--)
+    {
+        swap(array[i], array[j]);
+    }
+}
+
 
 
 int CounterOfNumberOfElem(int* array, int size, conditions condition)
@@ -471,6 +481,66 @@ int CounterOfNumberOfElem(float* array, int size, conditions condition)
     return counter;
 }
 
+int IndexofMinAbsValueInArray(int* array, int size)
+{
+    int index = 0;
+    int result = abs(array[0]);
+    for (size_t i = 0; i < size; i++)
+    {
+        if (abs(array[i]) < result)
+        {
+            result = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+float IndexofMinAbsValueInArray(float* array, int size)
+{
+    int index = 0;
+    int result = abs(array[0]);
+    for (size_t i = 0; i < size; i++)
+    {
+        if (abs(array[i]) < result)
+        {
+            result = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+int IndexofMaxAbsValueInArray(int* array, int size)
+{
+    int index = 0;
+    int result =abs(array[0]);
+    for (size_t i = 1; i < size; i++)
+    {
+        if (abs(array[i]) > result)
+        {
+            result = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+float IndexofMaxAbsValueInArray(float* array, int size)
+{
+    int index = 0;
+    int result = abs(array[0]);
+    for (size_t i = 1; i < size; i++)
+    {
+        if (abs(array[i]) > result)
+        {
+            result = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
 void ReadElementsOfArray(int* array, int size)
 {
     int value;
@@ -511,8 +581,33 @@ void WriteElementsOfArray(float* array, int size)
     }
 }
 
-//void WriteInfoInFile(string path)
-//{
-//    ifstream fin(path);
-//    ofstream fout(path);
-//}
+void WriteInfoInFile(float* array, string path, int size)
+{
+
+    ofstream out;
+    out.open(path);
+    if (out.is_open())
+    {
+        for (int i = 0; i < size; i++)
+        {
+            out << array[i] << endl;
+        }
+    }
+    out.close();
+}
+
+void ReadInfoFromFile(float* array, string path, int size)
+{
+    string line;    
+    ifstream in(path);
+    if (in.is_open())
+    {
+        for (int i = 0; i < size; i++)
+        {
+            getline(in, line);
+            double number = atof(line.c_str());
+            array[i] = number;
+        }
+    }
+    in.close();
+}
