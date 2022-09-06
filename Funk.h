@@ -16,8 +16,6 @@ enum conditions
 
 using namespace std;
 
-
-
 bool IsPositiveNumber(int a)
 {
     return a > 0;

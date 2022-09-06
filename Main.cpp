@@ -9,15 +9,17 @@ int main()
 {
 	srand(time(NULL));
 	int n; 
-	float* array;
+	//float* array;
 	int leftBoard;
 	int rightBoard;
 	float multiplication;
-	n = rand() % 21; //случайное n, но ограничил до 20, для удобства
-	cout << n << " Size of array" << endl;
-	cout << endl;
-	array = new float[n];
-	SetRandValueForFloat(array, n);
+	//n = rand() % 21; //случайное n, но ограничил до 20, для удобства
+	//cout << n << " Size of array" << endl;
+	//cout << endl;
+	//array = new float[n];   
+	//SetRandValueForFloat(array, n);
+	float* array = new float[6]{ -5,2,1,-7,100,4 };
+	n = 6;
 	int minIndex = IndexofMinAbsValueInArray(array, n);
 	int maxIndex = IndexofMaxAbsValueInArray(array, n);
 	leftBoard = (minIndex < maxIndex) ? minIndex : maxIndex;
