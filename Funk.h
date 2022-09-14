@@ -5,6 +5,7 @@
 #include <fstream>
 #include <math.h>
 #include <string>
+#include <iomanip>
 
 enum conditions
 {
@@ -68,7 +69,7 @@ bool IsMultipleOfNumber(float number, int divider)
 
 bool SearchBoundaries(int index, int firstIndex, int lastIndex)
 {
-    return index >= firstIndex && index <= lastIndex;
+    return index > firstIndex && index < lastIndex;
 }
 
 
@@ -147,6 +148,8 @@ float SumOfElements(float array[], int size, conditions condition, int leftBoard
 
 float MultiplicationOfElements(float array[], int size, conditions condition, int leftBoard, int rightBoard)
 {
+    if (rightBoard - leftBoard < 2)
+        return NULL;
     float result = 1;
     if (size == 0)
         return 0;
@@ -565,7 +568,7 @@ void WriteElementsOfArray(int* array, int size)
     for (int i = 0; i < size; i++)
     {
         value = array[i];
-        printf_s("%d \n", value);
+        printf_s("%.2d \n", value);
     }
 }
 
@@ -575,7 +578,7 @@ void WriteElementsOfArray(float* array, int size)
     for (int i = 0; i < size; i++)
     {
         value = array[i];
-        printf_s("%f \n", value);
+        printf_s("%.2f \n", value);
     }
 }
 
