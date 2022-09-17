@@ -7,14 +7,6 @@
 #include <string>
 #include <iomanip>
 
-enum conditions
-{
-    positive,
-    negative,
-    zero,
-    null
-};
-
 using namespace std;
 
 bool IsPositiveNumber(int a)
@@ -72,6 +64,11 @@ bool SearchBoundaries(int index, int firstIndex, int lastIndex)
     return index > firstIndex && index < lastIndex;
 }
 
+bool ReturnTrue(float a)
+{
+    return true;
+}
+
 
 void SetRandValueForInt(int* array, int size)
 {
@@ -91,117 +88,48 @@ void SetRandValueForFloat(float* array, int size)
     }
 }
 
-float SumOfElements(int array[], int size, conditions condition, int leftBoard , int rightBoard)
+int SumOfElements(int array[], int size, bool (*conditionalTypeofNumber)(float), bool (*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
 {
-    float result = 0;
+   int result = 0;
     for (int i = 0; i < size; i++)
     {
-        if (SearchBoundaries(i,leftBoard, rightBoard))
-        switch (condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                result += array[i];
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                result += array[i];
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                result += array[i];
-            break;
-        default:
-            break;
-        }
-    }
-    return result;
-}
-
-float SumOfElements(float array[], int size, conditions condition, int leftBoard, int rightBoard)
-{
-    float result = 0;
-    for (int i = 0; i < size; i++)
-    {
-        if (SearchBoundaries(i, leftBoard, rightBoard))
-        switch (condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                result += array[i];
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                result += array[i];
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                result += array[i];
-            break;
-        default:
+        if ((*IsNumberinBoards)(i, leftBoard, rightBoard) && (*conditionalTypeofNumber)(array[i]))
             result += array[i];
-            break;
-        }
     }
     return result;
 }
 
-float MultiplicationOfElements(float array[], int size, conditions condition, int leftBoard, int rightBoard)
+float SumOfElements(float array[], int size, bool (*conditionalTypeofNumber)(float), bool (*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
 {
-    if (rightBoard - leftBoard < 2)
-        return NULL;
-    float result = 1;
-    if (size == 0)
-        return 0;
+    float result = 0;
     for (int i = 0; i < size; i++)
     {
-        if (SearchBoundaries(i, leftBoard, rightBoard))
-        switch (condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                result *= array[i];
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                result *= array[i];
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                result *= array[i];
-            break;
-        default:
-            result *= array[i];
-            break;
-        }
+        if ((*IsNumberinBoards)(i, leftBoard, rightBoard) && (*conditionalTypeofNumber)(array[i]))
+            result += array[i];
     }
     return result;
 }
 
-float MultiplicationOfElements(int array[], int size, conditions condition, int leftBoard, int rightBoard)
+int MultiplicationOfElements(int array[], int size, bool (*conditionalTypeofNumber)(float), bool (*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
+{
+    int result = 1;
+    for (int i = 0; i < size; i++)
+    {
+        if ((*IsNumberinBoards)(i, leftBoard, rightBoard))
+            result *= array[i];
+
+    }
+    return result;
+}
+
+float MultiplicationOfElements(float array[], int size, bool (*conditionalTypeofNumber)(float), bool(*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
 {
     float result = 1;
     for (int i = 0; i < size; i++)
     {
-        if (SearchBoundaries(i, leftBoard, rightBoard))
-        switch(condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                result *= array[i];
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                result *= array[i];
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                result *= array[i];
-            break;
-        default:
+        if ((*IsNumberinBoards)(i, leftBoard, rightBoard) && (*conditionalTypeofNumber)(array[i]))
             result *= array[i];
-            break;
-        }
+
     }
     return result;
 }
@@ -430,54 +358,24 @@ void Reverse(float* array, int size)
 
 
 
-int CounterOfNumberOfElem(int* array, int size, conditions condition)
+int CounterOfNumberOfElem(int* array, int size, bool (*conditionalTypeofNumber)(int))
 {
     int counter = 0;
     for (int i = 0; i < size; i++)
     {
-        switch (condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                counter++;
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                counter++;
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                counter++;
-            break;
-        default:
-            break;
-        }
+        if ((*conditionalTypeofNumber)(array[i]))
+            counter++;
     }
     return counter;
 }
 
-int CounterOfNumberOfElem(float* array, int size, conditions condition)
+int CounterOfNumberOfElem(float* array, int size, bool (*conditionalTypeofNumber)(float))
 {
     int counter = 0;
     for (int i = 0; i < size; i++)
     {
-        switch (condition)
-        {
-        case positive:
-            if (IsPositiveNumber(array[i]))
-                counter++;
-            break;
-        case negative:
-            if (IsNegativeNumber(array[i]))
-                counter++;
-            break;
-        case zero:
-            if (IsZeroNumber(array[i]))
-                counter++;
-            break;
-        default:
-            break;
-        }
+        if ((*conditionalTypeofNumber)(array[i]))
+            counter++;
     }
     return counter;
 }
@@ -490,22 +388,22 @@ int IndexofMinAbsValueInArray(int* array, int size)
     {
         if (abs(array[i]) < result)
         {
-            result = array[i];
+            result = abs(array[i]);
             index = i;
         }
     }
     return index;
 }
 
-float IndexofMinAbsValueInArray(float* array, int size)
+int IndexofMinAbsValueInArray(float* array, int size)
 {
     int index = 0;
-    int result = abs(array[0]);
+    float result = abs(array[0]);
     for (size_t i = 0; i < size; i++)
     {
         if (abs(array[i]) < result)
         {
-            result = array[i];
+            result = abs(array[i]);
             index = i;
         }
     }
@@ -520,7 +418,7 @@ int IndexofMaxAbsValueInArray(int* array, int size)
     {
         if (abs(array[i]) > result)
         {
-            result = array[i];
+            result = abs(array[i]);
             index = i;
         }
     }
@@ -530,12 +428,12 @@ int IndexofMaxAbsValueInArray(int* array, int size)
 float IndexofMaxAbsValueInArray(float* array, int size)
 {
     int index = 0;
-    int result = abs(array[0]);
+    float result = abs(array[0]);
     for (size_t i = 1; i < size; i++)
     {
         if (abs(array[i]) > result)
         {
-            result = array[i];
+            result = abs(array[i]);
             index = i;
         }
     }
