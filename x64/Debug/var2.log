@@ -4,18 +4,18 @@ D:\Repositories\Algorithms\Funk.h(75,15): warning C4244: 'argument': conversion 
 D:\Repositories\Algorithms\Funk.h(84,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Repositories\Algorithms\Funk.h(87,57): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\Repositories\Algorithms\Funk.h(96,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Repositories\Algorithms\Funk.h(166,9): warning C4101: 'indexElem': unreferenced local variable
-D:\Repositories\Algorithms\Funk.h(190,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Repositories\Algorithms\Funk.h(240,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(280,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(285,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Repositories\Algorithms\Funk.h(392,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(407,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(422,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(437,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Repositories\Algorithms\Funk.h(440,12): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-D:\Repositories\Algorithms\Funk.h(508,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Repositories\Algorithms\Funk.h(170,9): warning C4101: 'indexElem': unreferenced local variable
+D:\Repositories\Algorithms\Funk.h(194,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Repositories\Algorithms\Funk.h(244,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(284,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(289,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Repositories\Algorithms\Funk.h(396,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(411,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(426,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(441,22): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Repositories\Algorithms\Funk.h(444,12): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+D:\Repositories\Algorithms\Funk.h(512,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\Repositories\Algorithms\Main.cpp(7,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Repositories\Algorithms\Main.cpp(13,8): warning C4101: 'multiplication': unreferenced local variable
-D:\Repositories\Algorithms\Funk.h(161): warning C4715: 'DeleteElem': not all control paths return a value
+D:\Repositories\Algorithms\Funk.h(165): warning C4715: 'DeleteElem': not all control paths return a value
   var2.vcxproj -> D:\Repositories\Algorithms\x64\Debug\Alg.exe

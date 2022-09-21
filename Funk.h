@@ -113,6 +113,8 @@ float SumOfElements(float array[], int size, bool (*conditionalTypeofNumber)(flo
 int MultiplicationOfElements(int array[], int size, bool (*conditionalTypeofNumber)(float), bool (*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
 {
     int result = 1;
+    if (rightBoard - leftBoard<1)
+        return 0;
     for (int i = 0; i < size; i++)
     {
         if ((*IsNumberinBoards)(i, leftBoard, rightBoard))
@@ -125,6 +127,8 @@ int MultiplicationOfElements(int array[], int size, bool (*conditionalTypeofNumb
 float MultiplicationOfElements(float array[], int size, bool (*conditionalTypeofNumber)(float), bool(*IsNumberinBoards)(int, int, int), int leftBoard, int rightBoard)
 {
     float result = 1;
+    if (rightBoard - leftBoard<1)
+        return 0;
     for (int i = 0; i < size; i++)
     {
         if ((*IsNumberinBoards)(i, leftBoard, rightBoard) && (*conditionalTypeofNumber)(array[i]))

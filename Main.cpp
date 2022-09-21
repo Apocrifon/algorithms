@@ -24,11 +24,10 @@ int main()
 	rightBoard = (minIndex < maxIndex) ? maxIndex : minIndex;
 	WriteElementsOfArray(array, n);
 	cout << endl;
-	cout << fixed << setprecision(2) << SumOfElements(array, n, ReturnTrue, SearchBoundaries, -1, n+1) << " Sum of positive numbers" <<  endl;
+	cout << fixed << setprecision(2) << SumOfElements(array, n, IsPositiveNumber, SearchBoundaries, -1, n+1) << " Sum of positive numbers" <<  endl;
 	cout << endl;
-	cout << leftBoard << " " << rightBoard << endl;
-		cout << fixed << setprecision(2) << MultiplicationOfElements(array, n, ReturnTrue, SearchBoundaries,leftBoard, rightBoard) << " Multiplication" << endl;
-		cout << endl;
+	cout << fixed << setprecision(2) << MultiplicationOfElements(array, n, ReturnTrue, SearchBoundaries,leftBoard, rightBoard) << " Multiplication" << endl;
+	cout << endl;
 	BubbleSort(array, n);
 	Reverse(array, n);
 	WriteElementsOfArray(array, n);
